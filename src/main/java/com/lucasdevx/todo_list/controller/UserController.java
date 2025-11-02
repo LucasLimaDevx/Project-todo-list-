@@ -1,4 +1,4 @@
-package com.lucasdevx.todo_lis.controller;
+package com.lucasdevx.todo_list.controller;
 
 import java.util.List;
 
