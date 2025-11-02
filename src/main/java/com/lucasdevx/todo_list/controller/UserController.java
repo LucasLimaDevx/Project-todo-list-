@@ -1,6 +1,7 @@
 package com.lucasdevx.todo_list.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lucasdevx.todo_list.dto.UserDTO;
 import com.lucasdevx.todo_list.model.User;
 import com.lucasdevx.todo_list.service.UserService;
 
@@ -25,24 +27,33 @@ public class UserController {
 	private UserService userService;
 	
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public User insert(@RequestBody User user) {
+	public UserDTO insert(@RequestBody UserDTO userDTO) {
 		
+		User user = userService.parseToEntity(userDTO);
 		
-		return userService.insert(user);
+		return userService.parseToDTO(userService.insert(user));
 	}
 	
 	@GetMapping("/{id}")
-	public User findById(@PathVariable Long id) {
-		return userService.findById(id);
+	public UserDTO findById(@PathVariable Long id) {
+		return userService.parseToDTO(userService.findById(id));
 	}
 	
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<User> findAll(){
-		return userService.findAll();
+	public List<UserDTO> findAll(){
+		
+		List<User> users = userService.findAll();
+		List<UserDTO> usersDTO = users.stream()
+				.map(user -> userService.parseToDTO(user))
+				.collect(Collectors.toList());
+		
+		return usersDTO;
 	}
 	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public User update(@RequestBody User user) {
-		return userService.update(user);
+	public UserDTO update(@RequestBody UserDTO userDTO) {
+		User user = userService.parseToEntity(userDTO);
+		
+		return userService.parseToDTO(userService.update(user));
 	}
 	
 	@DeleteMapping("/{id}")

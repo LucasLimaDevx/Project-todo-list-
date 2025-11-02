@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lucasdevx.todo_list.dto.UserDTO;
 import com.lucasdevx.todo_list.model.User;
 import com.lucasdevx.todo_list.repository.UserRepository;
 
@@ -40,5 +41,25 @@ public class UserService {
 	
 	public void delete(Long id) {
 		repositoryUser.deleteById(id);
+	}
+	
+	public User parseToEntity(UserDTO userDTO) {
+		User user = new User();
+		
+		user.setId(userDTO.id());
+		user.setName(userDTO.name());
+		user.setEmail(userDTO.email());
+	
+		
+		return user;
+	}
+	
+	public UserDTO parseToDTO(User user) {
+		
+		
+		return new UserDTO(
+				user.getId(),
+				user.getName(),
+				user.getEmail());
 	}
 }
