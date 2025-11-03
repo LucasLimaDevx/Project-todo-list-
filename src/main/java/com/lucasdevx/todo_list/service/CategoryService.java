@@ -35,6 +35,7 @@ public class CategoryService {
 		currentCategory.setName(category.getName());
 		currentCategory.setColor(category.getColor());
 		
+		
 		return repositoryCategory.save(currentCategory);
 			
 	}
@@ -60,6 +61,7 @@ public class CategoryService {
 		return new CategoryDTO(
 				category.getId(),
 				category.getName(),
-				category.getColor());
+				category.getColor(),
+				category.getTasks());
 	}
 }

@@ -49,7 +49,6 @@ public class UserService {
 		user.setId(userDTO.id());
 		user.setName(userDTO.name());
 		user.setEmail(userDTO.email());
-	
 		
 		return user;
 	}
@@ -60,6 +59,7 @@ public class UserService {
 		return new UserDTO(
 				user.getId(),
 				user.getName(),
-				user.getEmail());
+				user.getEmail(),
+				user.getTasks());
 	}
 }

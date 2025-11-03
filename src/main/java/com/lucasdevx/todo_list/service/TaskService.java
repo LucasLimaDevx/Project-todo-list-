@@ -36,6 +36,8 @@ public class TaskService {
 		currentTask.setDescription(task.getDescription());
 		currentTask.setDueDate(task.getDueDate());
 		currentTask.setStatus(task.getStatus());
+		currentTask.setUser(task.getUser());
+		currentTask.setCategory(task.getCategory());
 		
 		return repositoryTask.save(currentTask);
 			
@@ -53,6 +55,8 @@ public class TaskService {
 		task.setDescription(taskDTO.description());
 		task.setDueDate(taskDTO.dueDate());
 		task.setStatus(taskDTO.status());
+		task.setUser(taskDTO.user());
+		task.setCategory(taskDTO.category());
 		
 		return task;
 	}
@@ -65,6 +69,9 @@ public class TaskService {
 				task.getTitle(),
 				task.getDescription(),
 				task.getDueDate(),
-				task.getStatus());
+				task.getStatus(),
+				task.getUser(),
+				task.getCategory()
+				);
 	}
 }
