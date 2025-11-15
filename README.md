@@ -87,5 +87,4 @@ O sistema permite criar, atualizar, listar e excluir tarefas, além de organizá
 ## Acesse a aplicação usando o POSTMAN
 
 Aplicação estará disponível em http//:localhost:8080
-Aplicação estará disponível em http//:localhost:8080
 
