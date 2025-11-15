@@ -1,4 +1,4 @@
-# MedicalAppointmentSystem
+# Project ToDo List
 
 Este projeto é uma aplicação desenvolvida com Spring Boot e JPA para gerenciamento de tarefas.
 O sistema permite criar, atualizar, listar e excluir tarefas, além de organizá-las por categorias e vinculá-las a usuários.
