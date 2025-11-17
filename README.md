@@ -10,9 +10,11 @@ O sistema permite criar, atualizar, listar e excluir tarefas, além de organizá
 - Spring Data JPA / Hibernet
 - MySQL
 - Maven
+- Flyway
 
 ## Funcionalidades
 - CRUD de usuários, tarefas e categorias
+- Flyway para população do banco de dados
 
 ## Configuração e execução
   1. Clone o repositório:
